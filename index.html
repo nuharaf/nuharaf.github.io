@@ -18,13 +18,17 @@
   <h1>Indonesia Covid-19 Case</h1>
   <p>Chart generated using <a href="https://github.com/nuharaf/indonesia-covid19">this</a> notebook</p>
   <p>Click on the province bar-chart to filter the line-chart. Hold shift for multiple selection</p>
+
   <section id="positive">
+    <p>Positive</p>
     <div id="vis_positive"></div>
   </section>
   <section id="recover">
+    <p>Recover</p>
     <div id="vis_recover"></div>
   </section>
   <section id="dead">
+    <p>Dead</p>
     <div id="vis_dead"></div>
   </section>
 
@@ -37,11 +41,11 @@
       // result.view provides access to the Vega View API
       .then(result => console.log(result))
       .catch(console.warn);
-    vegaEmbed("#vis_recover", spec)
+    vegaEmbed("#vis_recover", recover_spec)
       // result.view provides access to the Vega View API
       .then(result => console.log(result))
       .catch(console.warn);
-    vegaEmbed("#vis_dead", spec)
+    vegaEmbed("#vis_dead", dead_spec)
       // result.view provides access to the Vega View API
       .then(result => console.log(result))
       .catch(console.warn);
