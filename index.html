@@ -1,28 +1,48 @@
 <!DOCTYPE html>
+
 <head>
-	<title>Indonesia covid-19 case summary</title>
-	<meta name="twitter:card" content="summary_large_image"></meta>
-	<meta property="og:title" content="Indonesia covid-19 case summary" />
-<meta property="og:url" content="https://nuharaf.github.io/index.html" />
-<meta property="og:description" content="Grafik perkembangan kasus covid-19 per provinsi" />
-<meta property="og:image" content="https://raw.githubusercontent.com/nuharaf/nuharaf.github.io/master/preview.png" />
+  <title>Indonesia covid-19 case summary</title>
+  <meta name="twitter:card" content="summary_large_image">
+  </meta>
+  <meta property="og:title" content="Indonesia covid-19 case summary" />
+  <meta property="og:url" content="https://nuharaf.github.io/index.html" />
+  <meta property="og:description" content="Grafik perkembangan kasus covid-19 per provinsi" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/nuharaf/nuharaf.github.io/master/preview.png" />
   <meta charset="utf-8">
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 
 <body>
-	<h1>Indonesia Covid-19 Case</h1>
-  <p>Chart generated using <a href = "https://github.com/nuharaf/indonesia-covid19">this</a> notebook</p>
+  <h1>Indonesia Covid-19 Case</h1>
+  <p>Chart generated using <a href="https://github.com/nuharaf/indonesia-covid19">this</a> notebook</p>
   <p>Click on the province bar-chart to filter the line-chart. Hold shift for multiple selection</p>
-	
-  <div id="vis"></div>
-  
+  <section id="positive">
+    <div id="vis_positive"></div>
+  </section>
+  <section id="recover">
+    <div id="vis_recover"></div>
+  </section>
+  <section id="dead">
+    <div id="vis_dead"></div>
+  </section>
+
+
   <script>
     const spec = "indonesia_covid.json";
-  	vegaEmbed("#vis", spec)
-    	// result.view provides access to the Vega View API
+    const recover_spec = "indonesia_covid_recover.json";
+    const dead_spec = "indonesia_covid_dead.json";
+    vegaEmbed("#vis_positive", spec)
+      // result.view provides access to the Vega View API
+      .then(result => console.log(result))
+      .catch(console.warn);
+    vegaEmbed("#vis_recover", spec)
+      // result.view provides access to the Vega View API
+      .then(result => console.log(result))
+      .catch(console.warn);
+    vegaEmbed("#vis_dead", spec)
+      // result.view provides access to the Vega View API
       .then(result => console.log(result))
       .catch(console.warn);
   </script>
